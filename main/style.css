@@ -29,23 +29,41 @@ body {
 }
 
 .address-input {
-    margin-top: 50px;
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template: 1fr 1fr / 5fr 1fr;
+    gap: 1em;
 }
 
 .address-input input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     border: 1px solid black;
     border-radius: 10px;
     background-color: #ffffff;
     color: #333;
+    text-align: center;
     cursor: pointer;
 }
 
+.address-input #search-btn {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px none black;
+    border-radius: 10px;
+}
+
+.address-input #search-btn img {
+    height: 50px;
+    width: auto;
+}
+
 .swap-button button {
-    width: 100%;
+    display: none;
+    width: 100px;
     background-color: #999;
     margin: 10px 0;
     padding: 10px;
@@ -113,4 +131,8 @@ body {
 .logo {
     height: 152px;
     width: auto;
+}
+
+#departure-address::placeholder {
+    text-align: center;
 }
