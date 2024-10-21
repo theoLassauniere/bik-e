@@ -1,12 +1,53 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Bik-E</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIK-E Interface</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 <body>
-    <h1> Welcome to Bik-E !</h1>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <h1>BIK-E</h1>
+        </div>
+
+        <!-- Address Input -->
+        <div class="address-input">
+            <label for="departure-address"></label><input type="text" id="departure-address" placeholder="Departure address">
+            <label for="arrival-address"></label><input type="text" id="arrival-address" placeholder="Arrival address">
+            <div class="swap-button">
+                <button id="swap-btn">⇅</button>
+            </div>
+        </div>
+
+        <!-- Home/Work buttons -->
+        <div class="quick-buttons">
+            <button class="home-btn" id="home-btn">🏠 HOME</button>
+            <button class="work-btn" id="work-btn">💼 WORK</button>
+        </div>
+
+        <!-- Saved Addresses -->
+        <div class="saved-addresses">
+            <button class="saved-btn" id="saved1-btn">19 rue ...</button>
+            <button class="saved-btn" id="saved2-btn">2155 rue ...</button>
+            <button class="saved-btn" id="saved3-btn">67 rue ...</button>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <!-- This div will hold the OpenStreetMap rendered by Leaflet.js -->
+        <div id="map"></div>
+    </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

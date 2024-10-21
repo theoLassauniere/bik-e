@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 300px;
+    background-color: #c3a5c9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo h1 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.address-input button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6c1d8;
+    color: #333;
+    cursor: pointer;
+}
+
+.swap-button button {
+    width: 100%;
+    background-color: #999;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Quick buttons (home/work) styling */
+.quick-buttons {
+    margin-top: 20px;
+}
+
+.quick-buttons button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+    background-color: #a892ae;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.home-btn {
+    background-color: #8a7496;
+}
+
+.work-btn {
+    background-color: #7b6585;
+}
+
+/* Saved addresses */
+.saved-addresses {
+    margin-top: 20px;
+}
+
+.saved-addresses button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    background-color: #d6c1d8;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Map section */
+.map-section {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #e8ecef;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+}
