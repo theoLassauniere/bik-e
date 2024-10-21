@@ -13,40 +13,29 @@
 <div class="container">
     <!-- Sidebar -->
     <aside class="sidebar">
-        <div class="logo">
+        <div class="logo-container">
             <img class="logo" src="../assets/logo.png" alt="logo bike"/>
         </div>
 
         <!-- Address Input -->
         <div class="address-input">
-            <label for="departure-address"></label>
-            <input type="text" id="departure-address" placeholder="Departure address">
-            <label for="arrival-address"></label>
-            <input type="text" id="arrival-address" placeholder="Arrival address">
+            <label for="departure-address">
+                <input type="text" id="departure-address" placeholder="Departure address">
+            </label>
+            <label for="arrival-address">
+                <input type="text" id="arrival-address" placeholder="Arrival address">
+            </label>
             <div class="swap-button">
                 <button id="swap-btn">⇅</button>
             </div>
         </div>
-
-        <!-- Home/Work buttons -->
-        <div class="quick-buttons">
-            <button class="home-btn" id="home-btn">🏠 HOME</button>
-            <button class="work-btn" id="work-btn">💼 WORK</button>
-        </div>
-
-        <!-- Saved Addresses -->
-        <div class="saved-addresses">
-            <button class="saved-btn" id="saved1-btn">19 rue ...</button>
-            <button class="saved-btn" id="saved2-btn">2155 rue ...</button>
-            <button class="saved-btn" id="saved3-btn">67 rue ...</button>
-        </div>
     </aside>
 
     <!-- Map Section -->
-    <main class="map-section">
+    <div class="map-section">
         <!-- Map object -->
         <div id="map"></div>
-    </main>
+    </div>
 </div>
 
 <!-- Leaflet JS -->
