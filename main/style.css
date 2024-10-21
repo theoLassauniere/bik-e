@@ -12,14 +12,15 @@ body {
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template: 1fr / 1fr 3fr;
     width: 100%;
 }
 
 /* Sidebar styling */
 .sidebar {
-    width: 300px;
-    background-color: #c3a5c9;
+    grid-column: 1;
+    background-color: #f0f0f0;
     padding: 20px;
     display: flex;
     flex-direction: column;

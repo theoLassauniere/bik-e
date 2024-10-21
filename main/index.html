@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/mini_logo.png"/>
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
 </head>
 <body>
 <div class="container">
@@ -19,8 +19,10 @@
 
         <!-- Address Input -->
         <div class="address-input">
-            <label for="departure-address"></label><input type="text" id="departure-address" placeholder="Departure address">
-            <label for="arrival-address"></label><input type="text" id="arrival-address" placeholder="Arrival address">
+            <label for="departure-address"></label>
+            <input type="text" id="departure-address" placeholder="Departure address">
+            <label for="arrival-address"></label>
+            <input type="text" id="arrival-address" placeholder="Arrival address">
             <div class="swap-button">
                 <button id="swap-btn">⇅</button>
             </div>
@@ -41,10 +43,10 @@
     </aside>
 
     <!-- Map Section -->
-    <div class="map-section">
-        <!-- This div will hold the OpenStreetMap rendered by Leaflet.js -->
+    <main class="map-section">
+        <!-- Map object -->
         <div id="map"></div>
-    </div>
+    </main>
 </div>
 
 <!-- Leaflet JS -->
