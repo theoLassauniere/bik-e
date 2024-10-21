@@ -1,5 +1,5 @@
 // Initialize the OpenStreetMap using Leaflet
-var map = L.map('map').setView([48.8566, 2.3522], 12);  // Centered on Paris by default
+let map = L.map('map').setView([48.8566, 2.3522], 12);  // Centered on Paris by default
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
