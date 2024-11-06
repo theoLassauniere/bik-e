@@ -20,6 +20,7 @@
 }
 
 .address-input #search-btn {
+    margin-left: 10px;
     cursor: pointer;
     background-color: #f0f0f0;
     border: 1px none black;
@@ -32,6 +33,7 @@
 }
 
 .suggestions {
+    display: none;
     background: white;
     border: 1px solid #ddd;
     max-height: 150px;
