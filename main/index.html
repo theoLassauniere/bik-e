@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIK-E</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../components/address-input/address-input.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/mini_logo.png"/>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
 </head>
+
 <body>
 <div class="container">
     <!-- Sidebar -->
@@ -21,15 +23,8 @@
             <img src="../assets/fleche.png" alt="arrow"/>
         </button>
 
-        <!-- Address Input -->
-        <div class="address-input">
-            <label for="departure-address">
-                <input type="text" id="departure-address" placeholder="Let's go somewhere ?">
-            </label>
-            <button id="search-btn">
-                <img src="../assets/loupe.png" alt="loupe"/>
-            </button>
-        </div>
+        <!-- Address Input Component -->
+        <app-address-input></app-address-input>
 
         <div class="swap-button">
             <button id="swap-btn">⇅</button>
@@ -45,6 +40,7 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="../components/address-input/address-input.js" defer></script>
 <script src="script.js"></script>
 </body>
 </html>
