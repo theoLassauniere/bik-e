@@ -1,5 +1,5 @@
 // Initialize the OpenStreetMap using Leaflet
-let map = L.map('map').setView([43.61575401901517, 7.07180936206396], 16);
+let map = L.map('map', {attributionControl: false}).setView([43.61575401901517, 7.07180936206396], 16);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
