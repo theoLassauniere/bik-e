@@ -15,11 +15,13 @@ class AddressInput extends HTMLElement {
 
     setupLogic() {
         const searchButton = this.shadowRoot.getElementById('search-btn');
-        const suggestionsBox = this.shadowRoot.getElementById('suggestions');
         const addressInput = this.shadowRoot.getElementById('departure-address');
+        const suggestionsBox = this.shadowRoot.getElementById('suggestions');
+
 
         // Attach event listener to search button
         searchButton.addEventListener('click', () => this.searchAddress(addressInput.value));
+        suggestionsBox.classList.add('displayNone');
 
         addressInput.addEventListener("keydown", (e) => {
             if (this.callTimeout) clearTimeout(this.callTimeout);
@@ -30,26 +32,28 @@ class AddressInput extends HTMLElement {
                 fetch(url)
                     .then(response => response.json())
                     .then(data => this.updateAutoCompleteList(data.features));
-            }, 1000);
+            }, 700);
         });
     }
 
     updateAutoCompleteList(addresses) {
+        const suggestionsBox = this.shadowRoot.getElementById('suggestions');
+        suggestionsBox.classList.remove('displayNone');
         const list = this.shadowRoot.getElementById('address-list');
         list.innerHTML = "";
 
         addresses.forEach((address) => {
-            let li = document.createElement("li");
-            li.textContent = address.properties.label;
+            let div = document.createElement("div");
+            div.textContent = address.properties.label;
 
-            li.addEventListener("click", () => {
+            div.addEventListener("click", () => {
                 let event = new CustomEvent("optionChosen", {
                     detail: {address},
                 });
                 document.dispatchEvent(event);
             });
 
-            list.appendChild(li);
+            list.appendChild(div);
         });
     }
 
