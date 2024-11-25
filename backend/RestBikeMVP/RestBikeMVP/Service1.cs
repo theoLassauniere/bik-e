@@ -4,28 +4,29 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http;
+using static System.Net.WebRequestMethods;
 
 namespace RestBikeMVP
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        private static readonly HttpClient httpClient = new HttpClient();
+        private const string apiKey = "apiKey=0fe07ec8bd4a1243fe5b004053cac6f992d26218";
+        private string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
+        public string GetInstructions(string origin)
         {
-            return string.Format("You entered: {0}", value);
+            Task<string> baseContract = getContractFromOrigin(origin);
+            return baseContract.Result;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        private async Task<string> getContractFromOrigin(string origin)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/contracts?" + apiKey;
+            HttpResponseMessage getResponse = await httpClient.GetAsync(getUrlForContractName);
+            string responseContent = await getResponse.Content.ReadAsStringAsync();
+            return responseContent;
         }
     }
 }
