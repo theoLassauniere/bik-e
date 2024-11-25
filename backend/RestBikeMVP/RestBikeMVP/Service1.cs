@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using static System.Net.WebRequestMethods;
+using System.Text.Json;
+using System.Net;
 
 namespace RestBikeMVP
 {
@@ -23,10 +25,23 @@ namespace RestBikeMVP
 
         private async Task<string> getContractFromOrigin(string origin)
         {
-            string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/contracts?" + apiKey;
+            // Call the JCDecaux api to retreive all stations
+            string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + apiKey;
             HttpResponseMessage getResponse = await httpClient.GetAsync(getUrlForContractName);
             string responseContent = await getResponse.Content.ReadAsStringAsync();
-            return responseContent;
+
+            // Convert the response to a list of Station
+            List<Station> stations = JsonSerializer.Deserialize<List<Station>>(responseContent);
+
+            string res = "";
+
+            // Process all the stations to find the nearest one
+            foreach (Station station in stations)
+            {
+                res += station.Name;
+            }
+
+            return res;
         }
     }
 }
