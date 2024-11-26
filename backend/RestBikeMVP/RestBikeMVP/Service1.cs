@@ -10,6 +10,7 @@ using static System.Net.WebRequestMethods;
 using System.Text.Json;
 using System.Net;
 using RestBikeMVP.Models;
+using System.Device.Location;
 
 namespace RestBikeMVP
 {
@@ -20,12 +21,13 @@ namespace RestBikeMVP
         private string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
         string IService1.GetInstructions(double latitude, double longitude)
         {
-            Position origin = new Position(latitude, longitude);
+            GeoCoordinate origin = new GeoCoordinate(latitude, longitude);
+            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAA" + origin.ToString());
             Task<string> baseContract = getContractFromOrigin(origin);
             return baseContract.Result;
         }
 
-        private async Task<string> getContractFromOrigin(Position origin)
+        private async Task<string> getContractFromOrigin(GeoCoordinate origin)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + apiKey;
@@ -40,8 +42,8 @@ namespace RestBikeMVP
             return nearestStation.Position.ToString();
         }
 
-        private Station FindNearestStation(List<Station> stations, Position origin)
-        {
+        private Station FindNearestStation(List<Station> stations, GeoCoordinate origin)
+        { 
             // Initialize a station 
             Station nearestStation = null;
             double resDistance = double.MaxValue;
@@ -49,9 +51,7 @@ namespace RestBikeMVP
             // Compute all stations to find the nearest from origin
             foreach (Station station in stations)
             {
-                double distanceFromOrigin = 
-                    Math.Abs(station.Position.Latitude - origin.Latitude) 
-                    + Math.Abs(station.Position.Longitude - origin.Longitude);
+                double distanceFromOrigin = origin.GetDistanceTo(new GeoCoordinate(station.Position.Latitude, station.Position.Longitude));
                 if (distanceFromOrigin < resDistance)
                 {
                     resDistance = distanceFromOrigin;
