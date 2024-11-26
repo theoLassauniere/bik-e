@@ -7,9 +7,20 @@ using System.Text.Json.Serialization;
 
 namespace RestBikeMVP.Models
 {
-    internal class Position
+    public class Position
     {
         [JsonPropertyName("latitude")] public double Latitude { get; set; }
         [JsonPropertyName("longitude")] public double Longitude { get; set; }
+
+        public Position(double latitude, double longitude)
+        {
+            Latitude = latitude;
+            Longitude = longitude;
+        }
+
+        public override string ToString()
+        {
+            return "{ " + Latitude + ", " + Longitude + " }";
+        }
     }
 }

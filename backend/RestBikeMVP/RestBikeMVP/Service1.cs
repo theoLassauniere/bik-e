@@ -9,6 +9,7 @@ using System.Net.Http;
 using static System.Net.WebRequestMethods;
 using System.Text.Json;
 using System.Net;
+using RestBikeMVP.Models;
 
 namespace RestBikeMVP
 {
@@ -17,13 +18,14 @@ namespace RestBikeMVP
         private static readonly HttpClient httpClient = new HttpClient();
         private const string apiKey = "apiKey=0fe07ec8bd4a1243fe5b004053cac6f992d26218";
         private string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
-        public string GetInstructions(string origin)
+        string IService1.GetInstructions(double latitude, double longitude)
         {
+            Position origin = new Position(latitude, longitude);
             Task<string> baseContract = getContractFromOrigin(origin);
             return baseContract.Result;
         }
 
-        private async Task<string> getContractFromOrigin(string origin)
+        private async Task<string> getContractFromOrigin(Position origin)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + apiKey;
@@ -33,15 +35,30 @@ namespace RestBikeMVP
             // Convert the response to a list of Station
             List<Station> stations = JsonSerializer.Deserialize<List<Station>>(responseContent);
 
-            string res = "";
+            
+            Station nearestStation = FindNearestStation(stations, origin);
+            return nearestStation.Position.ToString();
+        }
 
-            // Process all the stations to find the nearest one
+        private Station FindNearestStation(List<Station> stations, Position origin)
+        {
+            // Initialize a station 
+            Station nearestStation = null;
+            double resDistance = double.MaxValue;
+
+            // Compute all stations to find the nearest from origin
             foreach (Station station in stations)
             {
-                res += station.Name;
+                double distanceFromOrigin = 
+                    Math.Abs(station.Position.Latitude - origin.Latitude) 
+                    + Math.Abs(station.Position.Longitude - origin.Longitude);
+                if (distanceFromOrigin < resDistance)
+                {
+                    resDistance = distanceFromOrigin;
+                    nearestStation = station;
+                }
             }
-
-            return res;
+            return nearestStation;
         }
     }
 }
