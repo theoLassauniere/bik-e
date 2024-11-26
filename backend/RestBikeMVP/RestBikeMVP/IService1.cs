@@ -14,7 +14,11 @@ namespace RestBikeMVP
     public interface IService1
     {
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getInstructions?latitude={latitude}&longitude={longitude}")]
-        string GetInstructions(double latitude, double longitude);
+        [WebInvoke(
+            Method = "GET", 
+            ResponseFormat = WebMessageFormat.Json, 
+            BodyStyle = WebMessageBodyStyle.Wrapped, 
+            UriTemplate = "getInstructions?originLatitude={originLatitude}&originLongitude={originLongitude}&destinationLatitude={destinationLatitude}&destinationLongitude={destinationLongitude}")]
+        string GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude);
     }
 }

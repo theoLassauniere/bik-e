@@ -19,15 +19,17 @@ namespace RestBikeMVP
         private static readonly HttpClient httpClient = new HttpClient();
         private const string apiKey = "apiKey=0fe07ec8bd4a1243fe5b004053cac6f992d26218";
         private string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
-        string IService1.GetInstructions(double latitude, double longitude)
+        string IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
         {
-            GeoCoordinate origin = new GeoCoordinate(latitude, longitude);
-            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAA" + origin.ToString());
-            Task<string> baseContract = getContractFromOrigin(origin);
+            // Creation of origin and destination
+            GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
+            GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
+
+            Task<string> baseContract = getContractFromOrigin(origin, destination);
             return baseContract.Result;
         }
 
-        private async Task<string> getContractFromOrigin(GeoCoordinate origin)
+        private async Task<string> getContractFromOrigin(GeoCoordinate origin, GeoCoordinate destination)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + apiKey;
@@ -38,11 +40,28 @@ namespace RestBikeMVP
             List<Station> stations = JsonSerializer.Deserialize<List<Station>>(responseContent);
 
             
-            Station nearestStation = FindNearestStation(stations, origin);
-            return nearestStation.Position.ToString();
+            Station nearestStationFromOrigin = FindNearestStationFromOriginAmongAllStations(stations, origin);
+            if (isWorthToGoByFoot(origin, destination, nearestStationFromOrigin))
+            {
+                return "No need to rent a bike, walk is the best option";
+            }
+
+            Station nearestStationFromDestination = FindNearestStationFromOriginAmongAllStations(stations, destination);
+            return "The nearest station from origin is located at : " + nearestStationFromOrigin.Position.ToString()
+                + " and the nearest station from destination is located at : " + nearestStationFromDestination.Position.ToString();
         }
 
-        private Station FindNearestStation(List<Station> stations, GeoCoordinate origin)
+        private bool isWorthToGoByFoot(GeoCoordinate origin, GeoCoordinate destination, Station nearestStationFromOrigin)
+        {
+            double walkingSpeed = 4; // We assume 4 is in km per hour
+            double timeToTravelToDestination = origin.GetDistanceTo(destination) / walkingSpeed;
+            double timeToTravelToNearestStaion = origin.GetDistanceTo(new GeoCoordinate(
+                nearestStationFromOrigin.Position.Latitude, nearestStationFromOrigin.Position.Longitude)
+                ) / walkingSpeed;
+            return timeToTravelToDestination < timeToTravelToNearestStaion;
+        }
+
+        private Station FindNearestStationFromOriginAmongAllStations(List<Station> stations, GeoCoordinate origin)
         { 
             // Initialize a station 
             Station nearestStation = null;
