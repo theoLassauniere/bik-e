@@ -9,7 +9,7 @@ using RestBikeMVP.Models;
 
 namespace RestBikeMVP
 {
-    internal class Station
+    public class Station
     {
         [JsonPropertyName("number")] public int Number {  get; set; }
         [JsonPropertyName("contractName")] public string ContractName { get; set; }
