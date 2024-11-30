@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json.Serialization;
+using System.Globalization;
 
 namespace RestBikeMVP.Models
 {
@@ -20,7 +21,9 @@ namespace RestBikeMVP.Models
 
         public override string ToString()
         {
-            return "{ " + Latitude + ", " + Longitude + " }";
+            return "{ " 
+                + Latitude.ToString(CultureInfo.InvariantCulture) + ", " 
+                + Longitude.ToString(CultureInfo.InvariantCulture) + " }";
         }
     }
 }

@@ -99,7 +99,8 @@ namespace RestBikeMVP
                 contractName = nextStationOutOfContract.ContractName;
             }
 
-            return itinary.Distinct().ToList();
+            // We dont keep the destination station in the intermediates stations list
+            return itinary.Where(station => station.Name != destination.Name).Distinct().ToList();
         }
     }
 }
