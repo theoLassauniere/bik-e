@@ -76,10 +76,10 @@ namespace RestBikeMVP
             return nearestStation;
         }
 
-        public static List<Station> ComputeAllStationsInItinary(List<Station> Stations, Station origin, Station destination)
+        public static List<Station> ComputeAllStationsInItinerary(List<Station> Stations, Station origin, Station destination)
         {
             string contractName = origin.ContractName;
-            List<Station> itinary = new List<Station>();
+            List<Station> itinerary = new List<Station>();
             List<Station> filteredStationsInContract = Stations.Where(station => station.ContractName == contractName).ToList();
             List<Station> filteredStationsOutOFContract = Stations.Where(station => station.ContractName != contractName).ToList();
             GeoCoordinate destinationPoint = new GeoCoordinate(destination.Position.Latitude, destination.Position.Longitude);
@@ -87,20 +87,20 @@ namespace RestBikeMVP
             while (contractName != destination.ContractName)
             {
                 Station nextStationInContract = FindNearestStationFromDestinationInContract(filteredStationsInContract, destination, contractName);
-                itinary.Add(nextStationInContract);
+                itinerary.Add(nextStationInContract);
 
                 GeoCoordinate stationPoint = new GeoCoordinate(
                     nextStationInContract.Position.Latitude, 
                     nextStationInContract.Position.Longitude);
 
                 Station nextStationOutOfContract = FindStationBetweenOriginAndDestination(filteredStationsOutOFContract, stationPoint, destinationPoint);
-                itinary.Add(nextStationOutOfContract);
+                itinerary.Add(nextStationOutOfContract);
 
                 contractName = nextStationOutOfContract.ContractName;
             }
 
             // We dont keep the destination station in the intermediates stations list
-            return itinary.Where(station => station.Name != destination.Name).Distinct().ToList();
+            return itinerary.Where(station => station.Name != destination.Name).Distinct().ToList();
         }
     }
 }

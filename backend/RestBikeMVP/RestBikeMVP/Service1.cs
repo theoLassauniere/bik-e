@@ -31,11 +31,11 @@ namespace RestBikeMVP
             GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
             GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
 
-            Task<string> baseContract = getItinary(origin, destination);
+            Task<string> baseContract = getItinerary(origin, destination);
             return baseContract.Result;
         }
 
-        private async Task<string> getItinary(GeoCoordinate origin, GeoCoordinate destination)
+        private async Task<string> getItinerary(GeoCoordinate origin, GeoCoordinate destination)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + jcDecauxApiKey;
@@ -56,12 +56,12 @@ namespace RestBikeMVP
             // We use the if/else bloc for more readability
             if (nearestStationFromOrigin.ContractName != nearestStationFromDestination.ContractName)
             {
-                List<Station> itinaryStations = StationService.ComputeAllStationsInItinary(stations, nearestStationFromOrigin, nearestStationFromDestination);
-                itinerary = ItineraryService.ComputeItinaryWithSteps(
-                    origin, nearestStationFromOrigin, nearestStationFromDestination, destination, itinaryStations).Result;
+                List<Station> itineraryStations = StationService.ComputeAllStationsInItinerary(stations, nearestStationFromOrigin, nearestStationFromDestination);
+                itinerary = ItineraryService.ComputeItineraryWithSteps(
+                    origin, nearestStationFromOrigin, nearestStationFromDestination, destination, itineraryStations).Result;
             } else
             {
-                itinerary = ItineraryService.ComputeItinary(
+                itinerary = ItineraryService.ComputeItinerary(
                 origin, nearestStationFromOrigin, nearestStationFromDestination, destination).Result;
             }
 
