@@ -4,8 +4,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
-    background-color: white;
-    border: 2px solid #ddd;
+    background-color: lightblue;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 350px;
@@ -24,6 +23,7 @@
 .info {
     display: flex;
     flex-direction: column;
+    color: black;
 }
 
 #next-direction {
