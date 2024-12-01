@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\",
+  "WorkspaceRootPath": "C:\\Users\\Matice\\Desktop\\bik-e\\backend\\RestBikeMVP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Matice\\Desktop\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RestBikeMVP\\IService1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "IService1.cs",
-              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
+              "DocumentMoniker": "C:\\Users\\Matice\\Desktop\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\IService1.cs",
-              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
+              "ToolTip": "C:\\Users\\Matice\\Desktop\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
               "RelativeToolTip": "RestBikeMVP\\IService1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T08:30:44.763Z",
               "EditorCaption": ""

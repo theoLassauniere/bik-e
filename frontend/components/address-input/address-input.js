@@ -3,11 +3,12 @@ class AddressInput extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
 
-        fetch("/components/address-input/address-input.html").then(async (response) => {
+        fetch("/frontend/components/address-input/address-input.html").then(async (response) => {
             let htmlContent = await response.text();
             let templateContent = new DOMParser().parseFromString(htmlContent, "text/html").querySelector("template").content;
             this.shadowRoot.appendChild(templateContent.cloneNode(true));
 
+            this.updatePlaceholder();
             // Call setup logic after the template is loaded
             this.setupLogic();
         });
@@ -20,7 +21,9 @@ class AddressInput extends HTMLElement {
 
 
         // Attach event listener to search button
-        searchButton.addEventListener('click', () => this.searchAddress(addressInput.value));
+        searchButton.addEventListener('click', () => this.searchAddress(addressInput.value).then(
+            () => this.updateDepartureInputDisplay()
+        ));
         suggestionsBox.classList.add('displayNone');
 
         addressInput.addEventListener("keydown", (e) => {
@@ -45,16 +48,45 @@ class AddressInput extends HTMLElement {
         addresses.forEach((address) => {
             let div = document.createElement("div");
             div.textContent = address.properties.label;
+            div.className = "suggestion-item";
 
+            // Rendre la suggestion cliquable
             div.addEventListener("click", () => {
+                const input = this.shadowRoot.getElementById('departure-address');
+                input.value = address.properties.label;
+
+                // Déclencher un événement personnalisé
                 let event = new CustomEvent("optionChosen", {
-                    detail: {address},
+                    detail: { address },
                 });
                 document.dispatchEvent(event);
+
+                // Masquer les suggestions
+                suggestionsBox.classList.add('displayNone');
             });
 
             list.appendChild(div);
         });
+
+        // Ajouter un écouteur global pour masquer les suggestions quand on clique à l'extérieur
+        if (!this._outsideClickListener) {
+            this._outsideClickListener = this.handleOutsideClick.bind(this);
+            document.addEventListener("click", this._outsideClickListener);
+        }
+    }
+
+    handleOutsideClick(event) {
+        const suggestionsBox = this.shadowRoot.getElementById('suggestions');
+        const input = this.shadowRoot.getElementById('departure-address');
+
+        if (suggestionsBox && !suggestionsBox.contains(event.target) && !input.contains(event.target)) {
+            suggestionsBox.classList.add('displayNone');
+        }
+    }
+
+    updateDepartureInputDisplay(){
+        const departureField = document.getElementById("departure-input");
+        departureField.style.display = "block";
     }
 
     async searchAddress(address) {
@@ -76,10 +108,17 @@ class AddressInput extends HTMLElement {
             map.setView([lat, lon], 13);
             L.marker([lat, lon]).addTo(map).bindPopup(address).openPopup();
 
+
         } catch (error) {
             console.error('Erreur lors de la recherche de l\'adresse:', error);
             alert('Une erreur est survenue lors de la recherche.');
         }
+    }
+
+    updatePlaceholder() {
+        const input = this.shadowRoot.getElementById('departure-address');
+        const placeholder = this.getAttribute('placeholder') || "Let's go somewhere ?";
+        input.setAttribute('placeholder', placeholder);
     }
 }
 

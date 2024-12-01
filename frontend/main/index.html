@@ -12,17 +12,20 @@
 <body>
 <div class="container">
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <div class="logo-container">
             <img class="logo" src="../assets/logo.png" alt="logo bike"/>
         </div>
 
-        <button class="close-tab">
+        <button class="close-tab" id="close-tab">
             <img src="../assets/fleche-gauche.png" alt="arrow"/>
         </button>
 
         <!-- Address Input Component -->
-        <app-address-input></app-address-input>
+        <app-address-input class="input" id="departure-input" placeholder="From where do we start ?"></app-address-input>
+
+        <!-- Address Input Component -->
+        <app-address-input class="input" id="arrival-input" placeholder="Let's go somewhere ?"></app-address-input>
 
         <div class="swap-button">
             <button id="swap-btn">⇅</button>
@@ -32,10 +35,13 @@
     <!-- Map Section -->
     <div class="map-section">
         <div id="map"></div>
+        <!-- Next Directions Components -->
+        <directions-bubbles id="directions-component"></directions-bubbles>
     </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 <script src="../components/address-input/address-input.js" defer></script>
+<!--script src="../components/directions/directions.js" defer></script-->
 <script src="script.js"></script>
 </body>
 </html>
