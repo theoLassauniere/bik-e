@@ -66,6 +66,10 @@
     display: none;
 }
 
+.displayBlock {
+    display: block;
+}
+
 #address-list {
     width: 100%;
     font-size: 1rem;

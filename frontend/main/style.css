@@ -129,9 +129,6 @@ body {
     text-align: center;
 }
 
-#departure-input {
-    display: none;
-}
 
 #directions-component{
     height: 10rem;
@@ -141,4 +138,12 @@ body {
     transform: translateX(-50%);
     z-index: 1000; /* Ensure it appears above the map */
     width: 10rem;
+}
+
+#arrival-value {
+    display: none
+}
+
+#departure-value{
+    display: none;
 }

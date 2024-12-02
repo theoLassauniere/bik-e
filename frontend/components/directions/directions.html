@@ -1,12 +1,14 @@
 <template id="directions-bubble">
     <link rel="stylesheet" href="/frontend/components/directions/directions.css">
     <div id="bubble">
-        <div id="direction-icon">
-            <img src="../../assets/fleche-gauche.png" alt="direction-icon">
+        <div class="info" id="direction-icon">
+            <img src="/frontend/assets/loupe.png" alt="direction-icon">
         </div>
         <div class="info">
-            <p id="next-direction">Next-direction</p>
-            <p id="length">Length</p>
+            <span id="next-direction">Next-direction</span>
+        </div>
+        <div class="info">
+            <span id="length">Length</span>
         </div>
     </div>
     <script src="directions.js"></script>

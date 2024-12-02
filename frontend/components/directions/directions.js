@@ -7,7 +7,7 @@ class DirectionsBubble extends HTMLElement{
             let htmlContent = await response.text();
             let templateContent = new DOMParser().parseFromString(htmlContent, "text/html").querySelector("template").content;
             this.shadowRoot.appendChild(templateContent.cloneNode(true));
-            this.simulate()
+            //this.simulate()
         })
     }
 

@@ -11,6 +11,7 @@ class AddressInput extends HTMLElement {
             this.updatePlaceholder();
             // Call setup logic after the template is loaded
             this.setupLogic();
+
         });
     }
 
@@ -18,6 +19,8 @@ class AddressInput extends HTMLElement {
         const searchButton = this.shadowRoot.getElementById('search-btn');
         const addressInput = this.shadowRoot.getElementById('departure-address');
         const suggestionsBox = this.shadowRoot.getElementById('suggestions');
+        const arrivalAddress = [43.61575401901517, 7.07180936206396];
+        const departureAddress = [43.61575401901517, 7.07180936206396];
 
 
         // Attach event listener to search button
@@ -86,7 +89,7 @@ class AddressInput extends HTMLElement {
 
     updateDepartureInputDisplay(){
         const departureField = document.getElementById("departure-input");
-        departureField.style.display = "block";
+        departureField.classList.add('displayBlock');
     }
 
     async searchAddress(address) {
@@ -104,9 +107,26 @@ class AddressInput extends HTMLElement {
                 return;
             }
 
-            const {lat, lon} = data[0];
+            const {lat, lon, name} = data[0];
             map.setView([lat, lon], 13);
             L.marker([lat, lon]).addTo(map).bindPopup(address).openPopup();
+
+            const addressArrivalElement = document.getElementById("arrival-input");
+            const addressDepartureElement = document.getElementById("arrival-input");
+            if(addressArrivalElement.style.display !== "none"){
+                addressArrivalElement.style.display = "none";
+                document.getElementById("arrival-value").style.display = "block";
+                document.getElementById("arrival-value").innerText = "To:" + name;
+                const arrivalPosition = {arrivalLat: lat, arrivalLon: lon};
+                localStorage.setItem('arrivalPosition', JSON.stringify(arrivalPosition));
+            }
+            else{
+                addressDepartureElement.style.display = "none";
+                document.getElementById("departure-value").style.display = "block";
+                document.getElementById("departure-value").innerText = "From:" + name;
+                const departurePosition= {departureLat: lat, departureLon: lon};
+                localStorage.setItem('departurePosition', JSON.stringify(departurePosition));
+            }
 
 
         } catch (error) {

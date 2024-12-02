@@ -15,8 +15,12 @@ document.getElementById('swap-btn').addEventListener('click', function () {
     document.getElementById('arrival-address').value = departure;
 });
 
-document.getElementById('departure-input')
-document.getElementById('directions-bubble')
+document.getElementById('itinary-search').addEventListener('click', function () {
+    const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
+    const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
+    console.log(arrivalPosition.arrivalLat);
+})
+
 
 /* TODO Cacher la barre sur le coté
 document.getElementById("close-tab").addEventListener(('click'), () => this.updateSideBarDisplay())

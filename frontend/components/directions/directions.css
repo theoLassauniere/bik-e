@@ -1,22 +1,22 @@
 /* General Styling for the Directions Bubble */
 #bubble {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-content: start;
+    justify-content: center;
     padding: 10px;
     background-color: lightblue;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 350px;
-    margin: 10px auto;
     font-family: Arial, sans-serif;
+    height: auto;
+    width: 20rem;
 }
 
 /* Direction Icon Styling */
 #direction-icon img {
+    align-content: center;
     width: 40px;
     height: 40px;
-    margin-right: 15px;
 }
 
 /* Info Text Styling */
@@ -26,14 +26,20 @@
     color: black;
 }
 
+.info span {
+    height: 40px;
+    width: 120px;
+
+}
+
 #next-direction {
+    align-content: center;
     font-size: 16px;
     font-weight: bold;
-    margin: 0;
 }
 
 #length {
+    align-content: center;
     font-size: 14px;
     color: gray;
-    margin: 5px 0 0;
 }
