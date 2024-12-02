@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using RestBikeMVP.Models;
+using RoutingService.Models;
 
 namespace RestBikeMVP
 {
@@ -19,6 +20,6 @@ namespace RestBikeMVP
             ResponseFormat = WebMessageFormat.Json, 
             BodyStyle = WebMessageBodyStyle.Wrapped, 
             UriTemplate = "getInstructions?originLatitude={originLatitude}&originLongitude={originLongitude}&destinationLatitude={destinationLatitude}&destinationLongitude={destinationLongitude}")]
-        string GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude);
+        List<Properties> GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude);
     }
 }

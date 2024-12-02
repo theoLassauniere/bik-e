@@ -82,7 +82,7 @@
   <ItemGroup>
     <Compile Include="IService1.cs" />
     <Compile Include="ItineraryService.cs" />
-    <Compile Include="Models\ItinaryResponse.cs" />
+    <Compile Include="Models\ItineraryResponse.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Station.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

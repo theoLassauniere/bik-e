@@ -25,17 +25,17 @@ namespace RestBikeMVP
         private const string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
 
         private static readonly HttpClient httpClient = new HttpClient();
-        string IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
+        List<Properties> IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
         {
             // Creation of origin and destination
             GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
             GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
 
-            Task<string> baseContract = getItinerary(origin, destination);
+            Task<List<Properties>> baseContract = getItinerary(origin, destination);
             return baseContract.Result;
         }
 
-        private async Task<string> getItinerary(GeoCoordinate origin, GeoCoordinate destination)
+        private async Task<List<Properties>> getItinerary(GeoCoordinate origin, GeoCoordinate destination)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + jcDecauxApiKey;
@@ -65,14 +65,7 @@ namespace RestBikeMVP
                 origin, nearestStationFromOrigin, nearestStationFromDestination, destination).Result;
             }
 
-            List<Segment> segments = new List<Segment>();
-
-            foreach (Properties props in  itinerary)
-            {
-                props.Segments.ForEach(segment => segments.Add(segment));
-            }
-
-            return JsonSerializer.Serialize(segments, new JsonSerializerOptions { WriteIndented = true });
+            return itinerary;
         }
     }
 }
