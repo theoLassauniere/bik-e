@@ -20,6 +20,6 @@ namespace RestBikeMVP
             ResponseFormat = WebMessageFormat.Json, 
             BodyStyle = WebMessageBodyStyle.Wrapped, 
             UriTemplate = "getInstructions?originLatitude={originLatitude}&originLongitude={originLongitude}&destinationLatitude={destinationLatitude}&destinationLongitude={destinationLongitude}")]
-        List<Properties> GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude);
+        ServerResponse GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude);
     }
 }

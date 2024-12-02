@@ -13,6 +13,7 @@ using RestBikeMVP.Models;
 using System.Device.Location;
 using System.Globalization;
 using RoutingService.Models;
+using static System.Collections.Specialized.BitVector32;
 
 namespace RestBikeMVP
 {
@@ -25,17 +26,17 @@ namespace RestBikeMVP
         private const string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
 
         private static readonly HttpClient httpClient = new HttpClient();
-        List<Properties> IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
+        ServerResponse IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
         {
             // Creation of origin and destination
             GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
             GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
 
-            Task<List<Properties>> baseContract = getItinerary(origin, destination);
+            Task<ServerResponse> baseContract = getItinerary(origin, destination);
             return baseContract.Result;
         }
 
-        private async Task<List<Properties>> getItinerary(GeoCoordinate origin, GeoCoordinate destination)
+        private async Task<ServerResponse> getItinerary(GeoCoordinate origin, GeoCoordinate destination)
         {
             // Call the JCDecaux api to retreive all stations
             string getUrlForContractName = "https://api.jcdecaux.com/vls/v3/stations?" + jcDecauxApiKey;
@@ -43,29 +44,46 @@ namespace RestBikeMVP
             string responseContent = await getResponse.Content.ReadAsStringAsync();
 
             // Convert the response to a list of Station opened and connected
-            List<Station> stations = JsonSerializer.Deserialize<List<Station>>(responseContent).Where(station =>
+            List<Station> stationsResponse = JsonSerializer.Deserialize<List<Station>>(responseContent).Where(station =>
                 station.Connected && station.Status == "OPEN"
             ).ToList();
 
             // We compute first station and last station
-            Station nearestStationFromOrigin = StationService.FindNearestStationFromPoint(stations, origin);
-            Station nearestStationFromDestination = StationService.FindNearestStationFromPoint(stations, destination);
+            Station nearestStationFromOrigin = StationService.FindNearestStationFromPoint(stationsResponse, origin);
+            Station nearestStationFromDestination = StationService.FindNearestStationFromPoint(stationsResponse, destination);
 
-            List<Properties> itinerary;
+            List<Response> itinerary;
+            List<Station> allItineraryStations = new List<Station> { nearestStationFromOrigin };
 
             // We use the if/else bloc for more readability
             if (nearestStationFromOrigin.ContractName != nearestStationFromDestination.ContractName)
             {
-                List<Station> itineraryStations = StationService.ComputeAllStationsInItinerary(stations, nearestStationFromOrigin, nearestStationFromDestination);
+                List<Station> stations = StationService.ComputeAllStationsInItinerary(stationsResponse, nearestStationFromOrigin, nearestStationFromDestination);
+                stations.ForEach(station => allItineraryStations.Add(station));
                 itinerary = ItineraryService.ComputeItineraryWithSteps(
-                    origin, nearestStationFromOrigin, nearestStationFromDestination, destination, itineraryStations).Result;
+                    origin, nearestStationFromOrigin, nearestStationFromDestination, destination, stations).Result;
             } else
             {
                 itinerary = ItineraryService.ComputeItinerary(
                 origin, nearestStationFromOrigin, nearestStationFromDestination, destination).Result;
             }
+            allItineraryStations.Add(nearestStationFromDestination);
+            return BuildServerResponse(itinerary, allItineraryStations);
+        }
 
-            return itinerary;
+        public ServerResponse BuildServerResponse(List<Response> itinerary, List<Station> stations)
+        {
+            ServerResponse response = new ServerResponse();
+
+            foreach (Response properties in itinerary)
+            {
+                properties.Properties.Segments.ForEach(segment => response.Segments.Add(segment));
+                properties.Properties.WayPoints.ForEach(wayPoint => response.WayPoints.Add(wayPoint));
+                properties.Geometry.Coordinates.ForEach(coordinate => response.Coordinates.Add(coordinate));
+            }
+            stations.ForEach(station => response.Stations.Add(station.Position.ToString()));
+
+            return response;
         }
     }
 }

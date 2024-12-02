@@ -20,7 +20,7 @@ namespace RestBikeMVP
         private const string getBaseUrl = "https://api.jcdecaux.com/vls/v3/";
 
         private static readonly HttpClient httpClient = new HttpClient();
-        public static async Task<List<Properties>> ComputeItineraryWithSteps(
+        public static async Task<List<Response>> ComputeItineraryWithSteps(
             GeoCoordinate origin,
             Station firstStation,
             Station lastStation,
@@ -39,7 +39,7 @@ namespace RestBikeMVP
             }
 
             // We can add the first two steps Origin -> firstStation (foot), firstStation -> firstIntermediateStation (bike)
-            List<Properties> itinerary = new List<Properties> { 
+            List<Response> itinerary = new List<Response> { 
                 itineraryService.GetItinerary(origin, firstStationPosition, true).Result,
                 itineraryService.GetItinerary(firstStationPosition, positions[0], false).Result};
 
@@ -56,7 +56,7 @@ namespace RestBikeMVP
             return itinerary;
         }
 
-        public static async Task<List<Properties>> ComputeItinerary(GeoCoordinate origin, Station firstStation, Station lastStation, GeoCoordinate destination)
+        public static async Task<List<Response>> ComputeItinerary(GeoCoordinate origin, Station firstStation, Station lastStation, GeoCoordinate destination)
         {
             ItineraryService itineraryService = new ItineraryService();
             GeoCoordinate firstStationPosition = new GeoCoordinate(firstStation.Position.Latitude, firstStation.Position.Longitude);
@@ -64,10 +64,10 @@ namespace RestBikeMVP
             
             if (itineraryService.isWorthToGoByFoot(origin, destination, firstStationPosition, lastStationPosition))
             {
-                return new List<Properties> { itineraryService.GetItinerary(origin, destination, true).Result };
+                return new List<Response> { itineraryService.GetItinerary(origin, destination, true).Result };
             }
 
-            return new List<Properties> {
+            return new List<Response> {
                 itineraryService.GetItinerary(origin, firstStationPosition, true).Result,
                 itineraryService.GetItinerary(firstStationPosition, lastStationPosition, false).Result,
                 itineraryService.GetItinerary(lastStationPosition, destination, true).Result};
@@ -82,7 +82,6 @@ namespace RestBikeMVP
             if (firstStation.Equals(lastStation)) { return true; }
 
             // Origin -> destination by foot
-            // TEST HERE
             double originToDestinationByFoot = GetTravelDuration(origin, destination, true).Result;
 
             // Origin -> firstStation (foot) -> lastStation (bike) -> destination (foot)
@@ -109,7 +108,7 @@ namespace RestBikeMVP
 
             return properties.Summary.Duration;
         }
-        public async Task<Properties> GetItinerary(GeoCoordinate origin, GeoCoordinate destination, bool profile)
+        public async Task<Response> GetItinerary(GeoCoordinate origin, GeoCoordinate destination, bool profile)
         {
             // We assume profile is true means to go by foot
             string mode = profile ? "foot-walking?" : "cycling-regular?";
@@ -120,8 +119,8 @@ namespace RestBikeMVP
             // Call to openRouteService to get itinerary
             HttpResponseMessage getResponse = await httpClient.GetAsync(urlToGetItinerary);
             var responseContent = JsonDocument.Parse(await getResponse.Content.ReadAsStringAsync());
-            var propertiesField = responseContent.RootElement.GetProperty("features")[0].GetProperty("properties");
-            var properties = JsonSerializer.Deserialize<Properties>(propertiesField);
+            var featuresField = responseContent.RootElement.GetProperty("features")[0];
+            var properties = JsonSerializer.Deserialize<Response>(featuresField);
 
             return properties;
         }

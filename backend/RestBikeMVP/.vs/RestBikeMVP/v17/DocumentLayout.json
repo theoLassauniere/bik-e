@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\models\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\models\\serverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\models\\itineraryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\models\\itineraryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{159E3092-ADBF-4919-A803-4875825AF4D1}|poiuytr\\poiuytr.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\poiuytr\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{159E3092-ADBF-4919-A803-4875825AF4D1}|poiuytr\\poiuytr.csproj|solutionrelative:poiuytr\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\stationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\stationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +27,16 @@
       "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\models\\station.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\stationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\stationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\models\\itineraryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\models\\itineraryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\itineraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Service1.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\Service1.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs",
               "RelativeToolTip": "RestBikeMVP\\Service1.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAmwCMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAuwFYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T08:31:14.429Z",
               "IsPinned": true,
@@ -57,37 +65,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "IService1.cs",
+              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\poiuytr\\IService1.cs",
+              "RelativeDocumentMoniker": "poiuytr\\IService1.cs",
+              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\poiuytr\\IService1.cs",
+              "RelativeToolTip": "poiuytr\\IService1.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T10:16:03.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServerResponse.cs",
+              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\ServerResponse.cs",
+              "RelativeDocumentMoniker": "RestBikeMVP\\Models\\ServerResponse.cs",
+              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\ServerResponse.cs",
+              "RelativeToolTip": "RestBikeMVP\\Models\\ServerResponse.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAawBYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T08:29:04.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ItineraryService.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\ItineraryService.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\ItineraryService.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\ItineraryService.cs",
               "RelativeToolTip": "RestBikeMVP\\ItineraryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwEUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-30T16:52:56.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "StationService.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\StationService.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\StationService.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\StationService.cs",
               "RelativeToolTip": "RestBikeMVP\\StationService.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAEwFEAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAEwE4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T14:19:49.11Z"
+              "WhenOpened": "2024-11-30T14:19:49.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "IService1.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\IService1.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
               "RelativeToolTip": "RestBikeMVP\\IService1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-30T15:22:19.739Z",
               "EditorCaption": ""
@@ -100,7 +135,7 @@
               "RelativeDocumentMoniker": "RestBikeMVP\\Models\\Position.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\Position.cs",
               "RelativeToolTip": "RestBikeMVP\\Models\\Position.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T16:07:15.358Z",
               "EditorCaption": ""
@@ -113,20 +148,20 @@
               "RelativeDocumentMoniker": "RestBikeMVP\\Models\\Station.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\Station.cs",
               "RelativeToolTip": "RestBikeMVP\\Models\\Station.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwAsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T16:04:55.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ItineraryResponse.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\ItineraryResponse.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\Models\\ItineraryResponse.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Models\\ItineraryResponse.cs",
               "RelativeToolTip": "RestBikeMVP\\Models\\ItineraryResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAA8wBsAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T16:03:55.223Z",
               "EditorCaption": ""
