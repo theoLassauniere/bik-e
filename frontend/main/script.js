@@ -18,8 +18,17 @@ document.getElementById('swap-btn').addEventListener('click', function () {
 document.getElementById('itinary-search').addEventListener('click', function () {
     const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
     const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
-    console.log(arrivalPosition.arrivalLat);
+    const url = "http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/getInstructions?"
+    const originLatitude = "originLatitude=" + departurePosition.departureLat;
+    const originLongitude = "originLongitude=" + departurePosition.departureLon;
+    const destinationLatitude = "destinationLatitude=" + arrivalPosition.arrivalLat;
+    const destinationLongitude = "destinationLongitude" + arrivalPosition.arrivalLon;
+    const et = "&";
+    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude).then(async (response) => {
+        console.log(response);
+    })
 })
+
 
 
 /* TODO Cacher la barre sur le coté

@@ -19,8 +19,6 @@ class AddressInput extends HTMLElement {
         const searchButton = this.shadowRoot.getElementById('search-btn');
         const addressInput = this.shadowRoot.getElementById('departure-address');
         const suggestionsBox = this.shadowRoot.getElementById('suggestions');
-        const arrivalAddress = [43.61575401901517, 7.07180936206396];
-        const departureAddress = [43.61575401901517, 7.07180936206396];
 
 
         // Attach event listener to search button
