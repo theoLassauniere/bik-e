@@ -12,16 +12,23 @@ namespace RestBikeMVP
             Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/");
 
             // Create the ServiceHost
-            using (CorsBehavior.MyServiceHost host = new CorsBehavior.MyServiceHost(typeof(Service1), baseAddress))
+            using (var host = new ServiceHost(typeof(Service1), baseAddress))
             {
-                
-                    // Enable metadata publishing
-                    ServiceMetadataBehavior smb = host.Description.Behaviors.Find<ServiceMetadataBehavior>();
-                    if (smb == null)
+
+                try
+                {
+                    // Add a service endpoint with webHttpBinding
+                    var endpoint = host.AddServiceEndpoint(typeof(IService1), new WebHttpBinding(), "");
+
+                    // Ensure only one instance of WebHttpBehavior is added
+                    var webHttpBehavior = new WebHttpBehavior();
+                    if (!endpoint.EndpointBehaviors.Contains(webHttpBehavior))
                     {
-                        smb = new ServiceMetadataBehavior { HttpGetEnabled = true, HttpsGetEnabled = false };
-                        host.Description.Behaviors.Add(smb);
+                        endpoint.EndpointBehaviors.Add(webHttpBehavior);
                     }
+
+                    // Add CORS behavior
+                    endpoint.EndpointBehaviors.Add(new CorsBehavior());
 
                     // Open the ServiceHost to start listening for messages
                     host.Open();
@@ -29,6 +36,14 @@ namespace RestBikeMVP
                     Console.WriteLine("The service is ready at {0}", baseAddress);
                     Console.WriteLine("Press <Enter> to stop the service.");
                     Console.ReadLine();
+
+                    host.Close();
+                }
+                catch (CommunicationException ce)
+                {
+                    Console.WriteLine("An exception occurred: {0}", ce.Message);
+                    host.Abort();
+                }
             }
         }
     }

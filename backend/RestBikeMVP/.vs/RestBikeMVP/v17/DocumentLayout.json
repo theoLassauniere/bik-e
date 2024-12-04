@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:RestBikeMVP\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\cors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\cors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:RestBikeMVP\\Service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:RestBikeMVP\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|c:\\users\\lassa\\desktop\\cours\\si4\\middleware\\bik-e\\backend\\restbikemvp\\restbikemvp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:restbikemvp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:RestBikeMVP\\IService1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8836033D-2E22-4F2C-B1CD-2602D3D1DE4B}|RestBikeMVP\\RestBikeMVP.csproj|solutionrelative:RestBikeMVP\\Service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,43 +30,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\App.config",
+              "RelativeDocumentMoniker": "RestBikeMVP\\App.config",
+              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\App.config",
+              "RelativeToolTip": "RestBikeMVP\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-04T10:20:04.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Program.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\Program.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Program.cs",
               "RelativeToolTip": "RestBikeMVP\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwBoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-03T14:43:42.906Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Cors.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Cors.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\Cors.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Cors.cs",
               "RelativeToolTip": "RestBikeMVP\\Cors.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAUwDUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAQwCkAAADnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T09:26:39.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Service1.cs",
               "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs",
               "RelativeDocumentMoniker": "RestBikeMVP\\Service1.cs",
               "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\Service1.cs",
               "RelativeToolTip": "RestBikeMVP\\Service1.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAIwCgAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T08:31:14.429Z",
               "EditorCaption": ""
@@ -70,14 +87,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\App.config",
-              "RelativeDocumentMoniker": "RestBikeMVP\\App.config",
-              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\App.config",
-              "RelativeToolTip": "RestBikeMVP\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-12-04T09:18:44.835Z",
+              "Title": "IService1.cs",
+              "DocumentMoniker": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
+              "RelativeDocumentMoniker": "RestBikeMVP\\IService1.cs",
+              "ToolTip": "C:\\Users\\lassa\\Desktop\\Cours\\SI4\\Middleware\\bik-e\\backend\\RestBikeMVP\\RestBikeMVP\\IService1.cs",
+              "RelativeToolTip": "RestBikeMVP\\IService1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T15:22:19.739Z",
               "EditorCaption": ""
             }
           ]
