@@ -17,6 +17,9 @@
       "SourceFile": "Models\\Position.cs"
     },
     {
+      "SourceFile": "Models\\ServerResponse.cs"
+    },
+    {
       "SourceFile": "Models\\Station.cs"
     },
     {
