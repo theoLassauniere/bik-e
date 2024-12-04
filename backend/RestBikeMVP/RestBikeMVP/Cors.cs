@@ -10,7 +10,7 @@ using System.ServiceModel.Description;
 
 namespace RestBikeMVP
 {
-    public class CorsMessageInspector : IDispatchMessageInspector
+    public class Cors : IDispatchMessageInspector
     {
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
@@ -40,7 +40,7 @@ namespace RestBikeMVP
     public class CorsBehavior : IServiceBehavior
     {
         public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase, System.Collections.ObjectModel.Collection<ServiceEndpoint> endpoints, BindingParameterCollection bindingParameters)
-        { 
+        {
 
         }
 
@@ -52,7 +52,7 @@ namespace RestBikeMVP
                 {
                     foreach (var endpointDispatcher in channelDispatcher.Endpoints)
                     {
-                        endpointDispatcher.DispatchRuntime.MessageInspectors.Add(new CorsMessageInspector());
+                        endpointDispatcher.DispatchRuntime.MessageInspectors.Add(new Cors());
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace RestBikeMVP
         {
             // No validation needed
         }
-        
+
         public class MyServiceHost : ServiceHost
         {
             public MyServiceHost(Type serviceType, params Uri[] baseAddresses) : base(serviceType, baseAddresses)

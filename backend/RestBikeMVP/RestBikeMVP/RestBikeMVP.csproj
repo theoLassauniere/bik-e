@@ -101,6 +101,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cors.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="ItineraryService.cs" />
     <Compile Include="Models\ItineraryResponse.cs" />

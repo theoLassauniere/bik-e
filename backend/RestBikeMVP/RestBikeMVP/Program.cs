@@ -12,7 +12,7 @@ namespace RestBikeMVP
             Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/");
 
             // Create the ServiceHost
-            using (ServiceHost host = new ServiceHost(typeof(Service1), baseAddress))
+            using (CorsBehavior.MyServiceHost host = new CorsBehavior.MyServiceHost(typeof(Service1), baseAddress))
             {
                 
                     // Enable metadata publishing
