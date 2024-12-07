@@ -61,11 +61,13 @@ namespace RestBikeMVP
             ItineraryService itineraryService = new ItineraryService();
             GeoCoordinate firstStationPosition = new GeoCoordinate(firstStation.Position.Latitude, firstStation.Position.Longitude);
             GeoCoordinate lastStationPosition = new GeoCoordinate(lastStation.Position.Latitude, lastStation.Position.Longitude);
-            
+
             if (itineraryService.isWorthToGoByFoot(origin, destination, firstStationPosition, lastStationPosition))
             {
                 return new List<Response> { itineraryService.GetItinerary(origin, destination, true).Result };
             }
+
+            Console.WriteLine(itineraryService.GetItinerary(origin, firstStationPosition, true).Result);
 
             return new List<Response> {
                 itineraryService.GetItinerary(origin, firstStationPosition, true).Result,
@@ -95,7 +97,7 @@ namespace RestBikeMVP
         private async Task<double> GetTravelDuration(GeoCoordinate origin, GeoCoordinate destination, bool profile)
         {
             // We assume profile is true means to go by foot
-            string mode = profile ? "foot-walking?" : "cycling-regular?";
+            string mode = profile ? "foot-walking?" : "cycling-road?";
             string url = openRouteServiceUrl + mode + openRouteServiceApiKey
                 + "&start=" + origin.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + origin.Latitude.ToString(CultureInfo.InvariantCulture)
                 + "&end=" + destination.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + destination.Latitude.ToString(CultureInfo.InvariantCulture);
@@ -109,9 +111,9 @@ namespace RestBikeMVP
             return properties.Summary.Duration;
         }
         public async Task<Response> GetItinerary(GeoCoordinate origin, GeoCoordinate destination, bool profile)
-        {
+        {         
             // We assume profile is true means to go by foot
-            string mode = profile ? "foot-walking?" : "cycling-regular?";
+            string mode = profile ? "foot-walking?" : "cycling-road?";
             string urlToGetItinerary = openRouteServiceUrl + mode + openRouteServiceApiKey
                 + "&start=" + origin.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + origin.Latitude.ToString(CultureInfo.InvariantCulture)
                 + "&end=" + destination.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + destination.Latitude.ToString(CultureInfo.InvariantCulture);

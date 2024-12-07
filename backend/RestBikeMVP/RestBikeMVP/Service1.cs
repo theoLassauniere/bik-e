@@ -66,8 +66,11 @@ namespace RestBikeMVP
             {
                 itinerary = ItineraryService.ComputeItinerary(
                 origin, nearestStationFromOrigin, nearestStationFromDestination, destination).Result;
+
+                Console.WriteLine(itinerary.Count);
             }
             allItineraryStations.Add(nearestStationFromDestination);
+            
             return BuildServerResponse(itinerary, allItineraryStations);
         }
 

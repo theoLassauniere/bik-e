@@ -35,8 +35,13 @@ C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMV
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\System.Web.Http.xml
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\System.Web.Http.Cors.xml
-C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\obj\Debug\RestBikeMVP.csproj.SuggestedBindingRedirects.cache
-C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\obj\Debug\RestBikeMVP.exe.config
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\RestBikeMVP.exe.config
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\RestBikeMVP.exe
 C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\obj\Debug\RestBikeMVP.exe
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\Apache.NMS.ActiveMQ.dll
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\Apache.NMS.dll
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\obj\Debug\RestBikeMVP.csproj.SuggestedBindingRedirects.cache
+C:\Users\lassa\Desktop\Cours\SI4\Middleware\bik-e\backend\RestBikeMVP\RestBikeMVP\obj\Debug\RestBikeMVP.exe.config
