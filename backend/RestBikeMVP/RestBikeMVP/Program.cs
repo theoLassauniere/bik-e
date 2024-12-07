@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using Apache.NMS.ActiveMQ;
+using Apache.NMS;
 using static RestBikeMVP.CorsBehavior;
 
 namespace RestBikeMVP
@@ -9,13 +11,16 @@ namespace RestBikeMVP
     {
         static void Main(string[] args)
         {
-            // Define the service URI
+            // Define the service URIs
             Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/");
+            Uri connecturi = new Uri("activemq:tcp://localhost:61616");
+
+            // Créer une fabrique de connexion
+            IConnectionFactory connectionFactory = new ConnectionFactory(connecturi);
 
             // Create the ServiceHost
             using (var host = new MyServiceHost(typeof(Service1), baseAddress))
             {
-
                 try
                 {
                     // Add a service endpoint with webHttpBinding
