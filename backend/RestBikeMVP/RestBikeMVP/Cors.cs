@@ -14,7 +14,7 @@ namespace RestBikeMVP
     {
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
-            return null; // No action needed here for CORS
+            return null;
         }
 
         public void BeforeSendReply(ref Message reply, object correlationState)
@@ -22,7 +22,7 @@ namespace RestBikeMVP
             if (reply.Properties.TryGetValue(HttpResponseMessageProperty.Name, out var httpResponsePropertyObj) &&
                 httpResponsePropertyObj is HttpResponseMessageProperty httpResponseProperty)
             {
-                httpResponseProperty.Headers["Access-Control-Allow-Origin"] = "*"; // Adjust origin as needed
+                httpResponseProperty.Headers["Access-Control-Allow-Origin"] = "*";
                 httpResponseProperty.Headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS";
                 httpResponseProperty.Headers["Access-Control-Allow-Headers"] = "Content-Type, Accept";
             }

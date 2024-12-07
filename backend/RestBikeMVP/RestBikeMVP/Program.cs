@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using static RestBikeMVP.CorsBehavior;
 
 namespace RestBikeMVP
 {
@@ -12,7 +13,7 @@ namespace RestBikeMVP
             Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/");
 
             // Create the ServiceHost
-            using (var host = new ServiceHost(typeof(Service1), baseAddress))
+            using (var host = new MyServiceHost(typeof(Service1), baseAddress))
             {
 
                 try
