@@ -53,6 +53,8 @@ namespace RestBikeMVP
                         itineraryService.GetItinerary(positions[i], positions[i+1], true).Result);
                 }
             }
+
+            itinerary.Add(itineraryService.GetItinerary(lastStationPosition, destination, false).Result);
             return itinerary;
         }
 
