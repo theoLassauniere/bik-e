@@ -24,11 +24,10 @@ document.getElementById('itinary-search').addEventListener('click', function () 
     const destinationLatitude = "destinationLatitude=" + arrivalPosition.arrivalLat;
     const destinationLongitude = "destinationLongitude=" + arrivalPosition.arrivalLon;
     const et = "&";
-    fetch("http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/getInstructions?originLatitude=45.583627118765456&originLongitude=4.886171291231583&destinationLatitude=45.95258312357312&destinationLongitude=4.715806540675931")//url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude)
+    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude)
         .then(async (response) => response.json())
         .then(async (data) => {
 
-            console.log(data);
             const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
             console.log(coordinates.length);
 
