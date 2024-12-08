@@ -31,6 +31,8 @@ client.onConnect = () => {
             const instructions = allSteps.map(step => step.Instruction).flat();
             const distanceByStep = allSteps.map(step => step.Distance).flat();
 
+            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.classList.add('displayNone');
             for (let i = 0; i < stations.length; i++) {
                 const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
                 marker.bindPopup("Station n°" + i);
@@ -39,7 +41,7 @@ client.onConnect = () => {
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
 
-            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.classList.remove('displayNone');
             directionComponent.simulate(instructions, distanceByStep);
             const jsonMessage = JSON.parse(message.body);
             console.log("Received:", jsonMessage);

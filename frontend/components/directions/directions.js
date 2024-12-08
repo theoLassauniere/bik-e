@@ -21,7 +21,7 @@ class DirectionsBubble extends HTMLElement{
 
         if (nextDirectionElement && lengthElement) {
             nextDirectionElement.innerText = direction;
-            lengthElement.innerText = distance;
+            lengthElement.innerText = distance + " m";
         } else {
             console.error("Elements not found in shadow DOM");
         }
