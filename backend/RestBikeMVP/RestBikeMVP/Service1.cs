@@ -14,6 +14,9 @@ using System.Device.Location;
 using System.Globalization;
 using RoutingService.Models;
 using static System.Collections.Specialized.BitVector32;
+using Apache.NMS.ActiveMQ;
+using Apache.NMS;
+using Apache.NMS.ActiveMQ.Commands;
 
 namespace RestBikeMVP
 {
@@ -28,11 +31,40 @@ namespace RestBikeMVP
         private static readonly HttpClient httpClient = new HttpClient();
         ServerResponse IService1.GetInstructions(double originLatitude, double originLongitude, double destinationLatitude, double destinationLongitude)
         {
+            // URI de connexion au broker ActiveMQ
+            Uri connecturi = new Uri("activemq:tcp://localhost:61616");
+
+            // Créer une connexion
+            IConnectionFactory connectionFactory = new ConnectionFactory(connecturi);
+            IConnection connection = connectionFactory.CreateConnection();
+            connection.Start();
+
+            // Créer une session
+            ISession session = connection.CreateSession();
+
+            // Cibler ou créer une queue dynamiquement
+            IDestination itineraryQueue = session.GetQueue("itinerary");
+
+            // Créer un producteur pour envoyer des messages
+            IMessageProducer producer = session.CreateProducer(itineraryQueue);
+
+            // Configurer le producteur
+            producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+
             // Creation of origin and destination
             GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
             GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
 
             Task<ServerResponse> baseContract = getItinerary(origin, destination);
+
+            // Serializer la réponse
+            string jsonMessage = JsonSerializer.Serialize(baseContract.Result);
+
+            // Envoyer le message dans la queue
+            ITextMessage message = session.CreateTextMessage(jsonMessage);
+            producer.Send(message);
+
+            Console.WriteLine("JSON message sent to queue.");
             return baseContract.Result;
         }
 
@@ -52,7 +84,7 @@ namespace RestBikeMVP
             Station nearestStationFromOrigin = StationService.FindNearestStationFromPoint(stationsResponse, origin);
             Station nearestStationFromDestination = StationService.FindNearestStationFromPoint(stationsResponse, destination);
 
-            List<Response> itinerary;
+            List<OpenRouteServiceResponse> itinerary;
             List<Station> allItineraryStations = new List<Station> { nearestStationFromOrigin };
 
             // We use the if/else bloc for more readability
@@ -67,18 +99,17 @@ namespace RestBikeMVP
                 itinerary = ItineraryService.ComputeItinerary(
                 origin, nearestStationFromOrigin, nearestStationFromDestination, destination).Result;
 
-                Console.WriteLine(itinerary.Count);
             }
             allItineraryStations.Add(nearestStationFromDestination);
             
             return BuildServerResponse(itinerary, allItineraryStations);
         }
 
-        public ServerResponse BuildServerResponse(List<Response> itinerary, List<Station> stations)
+        public ServerResponse BuildServerResponse(List<OpenRouteServiceResponse> itinerary, List<Station> stations)
         {
             ServerResponse response = new ServerResponse();
 
-            foreach (Response properties in itinerary)
+            foreach (OpenRouteServiceResponse properties in itinerary)
             {
                 properties.Properties.Segments.ForEach(segment => response.Segments.Add(segment));
                 properties.Properties.WayPoints.ForEach(wayPoint => response.WayPoints.Add(wayPoint));
