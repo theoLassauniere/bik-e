@@ -23,6 +23,24 @@ client.onConnect = () => {
     client.subscribe("/queue/itinerary", (message) => {
         if (message.body) {
             // Parse and display the JSON message
+            const data = JSON.parse(message);
+            const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
+            const stations = JSON.parse(data.GetInstructionsResult.Stations);
+            const segments = data.GetInstructionsResult.Segments;
+            const allSteps = segments.map(segment => segment.Steps).flat();
+            const instructions = allSteps.map(step => step.Instruction).flat();
+            const distanceByStep = allSteps.map(step => step.Distance).flat();
+
+            for (let i = 0; i < stations.length; i++) {
+                const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
+                marker.bindPopup("Station n°" + i);
+            }
+
+            const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
+            map.fitBounds(polyline.getBounds());
+
+            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.simulate(instructions, distanceByStep);
             const jsonMessage = JSON.parse(message.body);
             console.log("Received:", jsonMessage);
         } else {
@@ -65,29 +83,7 @@ document.getElementById('itinary-search').addEventListener('click', function () 
     const destinationLatitude = "destinationLatitude=" + arrivalPosition.arrivalLat;
     const destinationLongitude = "destinationLongitude=" + arrivalPosition.arrivalLon;
     const et = "&";
-    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude)
-        .then(async (response) => response.json())
-        .then(async (data) => {
-
-            const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
-            const stations = JSON.parse(data.GetInstructionsResult.Stations);
-            const segments = data.GetInstructionsResult.Segments;
-            const allSteps = segments.map(segment => segment.Steps).flat();
-            const instructions = allSteps.map(step => step.Instruction).flat();
-            const distanceByStep = allSteps.map(step => step.Distance).flat();
-
-            for (let i = 0; i < stations.length; i++) {
-                const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
-                marker.bindPopup("Station n°" + i);
-            }
-
-            const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
-            map.fitBounds(polyline.getBounds());
-
-            const directionComponent = document.querySelector("directions-bubbles");
-            directionComponent.simulate(instructions, distanceByStep);
-        }
-    )
+    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude);
 })
 
 
