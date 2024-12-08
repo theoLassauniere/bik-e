@@ -29,10 +29,10 @@ document.getElementById('itinary-search').addEventListener('click', function () 
         .then(async (data) => {
 
             const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
-            console.log(coordinates.length);
 
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
+
         }
     )
 })

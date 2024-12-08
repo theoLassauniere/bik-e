@@ -7,33 +7,39 @@ class DirectionsBubble extends HTMLElement{
             let htmlContent = await response.text();
             let templateContent = new DOMParser().parseFromString(htmlContent, "text/html").querySelector("template").content;
             this.shadowRoot.appendChild(templateContent.cloneNode(true));
-            //this.simulate()
         })
     }
 
 
     updateDirectionsBubble(direction) {
         // Find the template element and create a clone
-        const template = document.getElementById("directions-bubble");
+        console.log(direction);
+        const bubble = document.getElementById("directions-bubble");
+        document.getElementById("direction-icon-image").src = direction.icon;
+        document.getElementById("next-direction").innerText = direction.instruction;
+        document.getElementById("length").innerText=direction.length;
+
+
+        /*const template = document.getElementById("directions-bubble");
         const bubbleClone = template.content.cloneNode(true);
 
         // Update the icon
-        const directionIcon = bubbleClone.querySelector("#direction-icon img");
+        const directionIcon = bubbleClone.getElementById("direction-icon-image");
         directionIcon.src = direction.icon;
 
         // Update the direction text
-        const nextDirection = bubbleClone.querySelector("#next-direction");
+        const nextDirection = bubbleClone.getElementById("next-direction");
         nextDirection.textContent = direction.instruction;
 
         // Update the length
-        const lengthElement = bubbleClone.querySelector("#length");
+        const lengthElement = bubbleClone.getElementById("length");
         lengthElement.textContent = direction.length;
 
         document.body.innerHTML += '<div id="directions-container"></div>';
         // Append to the DOM (replace existing bubble)
         const container = document.getElementById("directions-bubble");
         container.innerHTML = ""; // Clear any existing bubbles
-        container.appendChild(bubbleClone);
+        container.appendChild(bubbleClone);*/
     }
 
 
