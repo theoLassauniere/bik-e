@@ -7,7 +7,7 @@ using RestBikeMVP.Models;
 
 namespace RoutingService.Models
 {
-    public class Response
+    public class OpenRouteServiceResponse
     {
         [JsonPropertyName("properties")] public Properties Properties { get; set; }
         [JsonPropertyName("geometry")] public Geometry Geometry { get; set; }
