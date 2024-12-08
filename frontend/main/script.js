@@ -34,13 +34,7 @@ client.onConnect = () => {
             const directionComponent = document.querySelector("directions-bubbles");
             directionComponent.classList.add('displayNone');
             for (let i = 0; i < stations.length; i++) {
-                const customIcon = L.icon({
-                    iconUrl: "/frontend/assets/bicycle-solid.svg",
-                    iconSize: [38, 38], // Size of the icon
-                    iconAnchor: [19, 38], // Anchor of the icon (base of the pin)
-                    popupAnchor: [0, -38] // Popup anchor relative to the icon
-                });
-                const marker = L.marker([stations[i].latitude, stations[i].longitude], {icon: customIcon}).addTo(map);
+                const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
                 marker.bindPopup("Station n°" + (i + 1));
             }
 
