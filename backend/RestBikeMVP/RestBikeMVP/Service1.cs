@@ -115,7 +115,10 @@ namespace RestBikeMVP
                 properties.Properties.WayPoints.ForEach(wayPoint => response.WayPoints.Add(wayPoint));
                 properties.Geometry.Coordinates.ForEach(coordinate => response.Coordinates.Add(coordinate));
             }
-            stations.ForEach(station => response.Stations.Add(station.Position.ToString()));
+            List<Position> positions = new List<Position>();
+            stations.ForEach(station => positions.Add(station.Position));
+            String jsonStations = JsonSerializer.Serialize(positions);
+            response.Stations = jsonStations;
 
             return response;
         }
