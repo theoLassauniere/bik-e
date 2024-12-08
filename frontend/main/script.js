@@ -70,7 +70,11 @@ document.getElementById('itinary-search').addEventListener('click', function () 
         .then(async (data) => {
 
             const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
-            const stations = JSON.parse(data.GetInstructionsResult.Stations)
+            const stations = JSON.parse(data.GetInstructionsResult.Stations);
+            const segments = data.GetInstructionsResult.Segments;
+            const allSteps = segments.map(segment => segment.Steps).flat();
+            const instructions = allSteps.map(step => step.Instruction).flat();
+            const distanceByStep = allSteps.map(step => step.Distance).flat();
 
             for (let i = 0; i < stations.length; i++) {
                 const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
@@ -79,6 +83,9 @@ document.getElementById('itinary-search').addEventListener('click', function () 
 
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
+
+            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.simulate(instructions, distanceByStep);
         }
     )
 })
