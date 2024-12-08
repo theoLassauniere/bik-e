@@ -1,3 +1,47 @@
+// ActiveMQ Connection details
+const brokerURL = "ws://localhost:61614/stomp"; // ActiveMQ WebSocket endpoint
+
+// Create a STOMP client
+const client = new StompJs.Client({
+    brokerURL: brokerURL,
+    connectHeaders: {
+        login: "admin",    // ActiveMQ username
+        passcode: "admin", // ActiveMQ password
+    },
+    debug: (str) => {
+        if (!str.startsWith(">>> PONG") && !str.startsWith("<<< PING")) {
+            console.log(str); // Log only non-heartbeat messages
+        }
+    },
+    reconnectDelay: 5000, // Auto-reconnect after 5 seconds
+    heartbeatIncoming: 4000,
+    heartbeatOutgoing: 4000,
+});
+
+// Connect to the broker
+client.onConnect = () => {
+    console.log("Connected to ActiveMQ!");
+
+    // Subscribe to the queue
+    client.subscribe("/queue/itinerary", (message) => {
+        if (message.body) {
+            // Parse and display the JSON message
+            const jsonMessage = JSON.parse(message.body);
+            console.log("Received:", jsonMessage);
+        } else {
+            console.log("Empty message received");
+        }
+    });
+};
+
+client.onStompError = (frame) => {
+    console.error("Broker reported error:", frame.headers["message"]);
+    console.error("Additional details:", frame.body);
+};
+
+// Activate the client
+client.activate();
+
 // Initialize the OpenStreetMap using Leaflet
 let map = L.map('map', {
     attributionControl: false,
