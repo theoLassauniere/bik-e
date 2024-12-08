@@ -149,7 +149,7 @@ body {
 }
 
 
-.itinary-button {
+.itinerary-button {
     display: inline-block;
     transition: all 0.2s ease-in;
     position: relative;
@@ -165,12 +165,12 @@ body {
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 
-.itinary-button:active {
+.itinerary-button:active {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
-.itinary-button:before {
+.itinerary-button:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -185,7 +185,7 @@ body {
     z-index: -1;
 }
 
-.itinary-button:after {
+.itinerary-button:after {
     content: "";
     position: absolute;
     left: 55%;
@@ -200,18 +200,18 @@ body {
     z-index: -1;
 }
 
-.itinary-button:hover {
+.itinerary-button:hover {
     color: #ffffff;
     border: 1px solid #009087;
 }
 
-.itinary-button:hover:before {
+.itinerary-button:hover:before {
     top: -35%;
     background-color: #009087;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
-.itinary-button:hover:after {
+.itinerary-button:hover:after {
     top: -45%;
     background-color: #009087;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);

@@ -59,7 +59,7 @@ document.getElementById('swap-btn').addEventListener('click', function () {
     document.getElementById('arrival-address').value = departure;
 });
 
-document.getElementById('itinary-search').addEventListener('click', function () {
+document.getElementById('itinerary-search').addEventListener('click', function () {
     const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
     const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
     const url = "http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/getInstructions?"
@@ -72,10 +72,18 @@ document.getElementById('itinary-search').addEventListener('click', function () 
         .then(async (response) => response.json())
         .then(async (data) => {
 
+            console.log(data);
             const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
+            const segments = data.GetInstructionsResult.Segments;
+            const allSteps = segments.map(segment => segment.Steps).flat();
+            const instructions = allSteps.map(step => step.Instruction).flat();
+            const distanceByStep = allSteps.map(step => step.Distance).flat();
 
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
+
+            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.simulate(instructions, distanceByStep);
 
         }
     )
