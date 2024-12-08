@@ -15,6 +15,13 @@ const client = new StompJs.Client({
     heartbeatOutgoing: 4000,
 });
 
+const directionComponent = document.querySelector("directions-bubbles");
+const loader = document.getElementById("loader");
+directionComponent.classList.add('displayNone');
+loader.classList.add('displayNone');
+
+console.log(loader.classList.contains('displayNone'));
+
 // Connect to the broker
 client.onConnect = () => {
     console.log("Connected to ActiveMQ!");
@@ -32,7 +39,7 @@ client.onConnect = () => {
             const distanceByStep = allSteps.map(step => step.distance).flat();
 
             const directionComponent = document.querySelector("directions-bubbles");
-            directionComponent.classList.add('displayNone');
+            directionComponent.classList.remove('displayNone');
             for (let i = 0; i < stations.length; i++) {
                 const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
                 marker.bindPopup("Station n°" + (i + 1));
@@ -76,6 +83,8 @@ document.getElementById('swap-btn').addEventListener('click', function () {
 });
 
 document.getElementById('itinary-search').addEventListener('click', function () {
+    loader.classList.add('displayFlex');
+    loader.classList.remove('displayNone');
     const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
     const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
     const url = "http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/getInstructions?"
@@ -84,16 +93,9 @@ document.getElementById('itinary-search').addEventListener('click', function () 
     const destinationLatitude = "destinationLatitude=" + arrivalPosition.arrivalLat;
     const destinationLongitude = "destinationLongitude=" + arrivalPosition.arrivalLon;
     const et = "&";
-    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude);
+    fetch(url + et + originLatitude + et + originLongitude + et + destinationLatitude + et + destinationLongitude)
+        .then(res => {
+            loader.classList.remove('displayFlex');
+            loader.classList.add('displayNone');
+        });
 })
-
-
-
-/* TODO Cacher la barre sur le coté
-document.getElementById("close-tab").addEventListener(('click'), () => this.updateSideBarDisplay())
-
-function updateSideBarDisplay() {
-    const sideBar = document.getElementById("sidebar");
-    sideBar.style.width = "0px";
-}
- */
