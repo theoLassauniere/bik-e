@@ -14,8 +14,6 @@ class DirectionsBubble extends HTMLElement{
 
 
     updateDirectionsBubble(direction, distance) {
-        console.log(direction + "&" + distance);
-
         const nextDirectionElement = this.shadowRoot.getElementById("next-direction");
         const lengthElement = this.shadowRoot.getElementById("length");
 

@@ -35,10 +35,10 @@ client.onConnect = () => {
             directionComponent.classList.add('displayNone');
             for (let i = 0; i < stations.length; i++) {
                 const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
-                marker.bindPopup("Station n°" + i);
+                marker.bindPopup("Station n°" + (i + 1));
             }
 
-            const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
+            const polyline = L.polyline(coordinates, {color: 'green'}).addTo(map);
             map.fitBounds(polyline.getBounds());
 
             directionComponent.classList.remove('displayNone');
