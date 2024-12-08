@@ -8,6 +8,7 @@ class AddressInput extends HTMLElement {
             let templateContent = new DOMParser().parseFromString(htmlContent, "text/html").querySelector("template").content;
             this.shadowRoot.appendChild(templateContent.cloneNode(true));
 
+            document.getElementById("departure-input").classList.add('displayNone');
             this.updatePlaceholder();
             // Call setup logic after the template is loaded
             this.setupLogic();
@@ -22,9 +23,16 @@ class AddressInput extends HTMLElement {
 
 
         // Attach event listener to search button
-        searchButton.addEventListener('click', () => this.searchAddress(addressInput.value).then(
-            () => this.updateDepartureInputDisplay()
-        ));
+        searchButton.addEventListener('click', () => {
+            this.searchAddress(addressInput.value)
+                .then(() => {
+                    this.updateDepartureInputDisplay();
+                })
+                .catch((error) => {
+                    console.error('An error occurred:', error);
+                });
+        });
+
         suggestionsBox.classList.add('displayNone');
 
         addressInput.addEventListener("keydown", (e) => {
@@ -87,6 +95,7 @@ class AddressInput extends HTMLElement {
 
     updateDepartureInputDisplay(){
         const departureField = document.getElementById("departure-input");
+        departureField.classList.remove('displayNone');
         departureField.classList.add('displayBlock');
     }
 
@@ -110,16 +119,14 @@ class AddressInput extends HTMLElement {
             L.marker([lat, lon]).addTo(map).bindPopup(address).openPopup();
 
             const addressArrivalElement = document.getElementById("arrival-input");
-            const addressDepartureElement = document.getElementById("arrival-input");
-            if(addressArrivalElement.style.display !== "none"){
-                addressArrivalElement.style.display = "none";
+            if(!addressArrivalElement.classList.contains('displayNone')){
+                addressArrivalElement.classList.add('displayNone');
                 document.getElementById("arrival-value").style.display = "block";
                 document.getElementById("arrival-value").innerText = "To:" + name;
                 const arrivalPosition = {arrivalLat: lat, arrivalLon: lon};
                 localStorage.setItem('arrivalPosition', JSON.stringify(arrivalPosition));
             }
             else{
-                addressDepartureElement.style.display = "none";
                 document.getElementById("departure-value").style.display = "block";
                 document.getElementById("departure-value").innerText = "From:" + name;
                 const departurePosition= {departureLat: lat, departureLon: lon};
