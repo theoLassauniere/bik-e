@@ -45,7 +45,7 @@ namespace RestBikeMVP
 
             if (positions.Count() > 1)
             {
-                for (int i = 1; i < positions.Count() - 1; i++)
+                for (int i = 1; i < positions.Count(); i++)
                 {
                     // If two following stations are in the same contract, we bike
                     itinerary.Add(itineraryStations[i].ContractName == itineraryStations[i+1].ContractName ?
@@ -53,8 +53,9 @@ namespace RestBikeMVP
                         itineraryService.GetItinerary(positions[i], positions[i+1], true).Result);
                 }
             }
+            itinerary.Add(itineraryService.GetItinerary(positions.Last(), lastStationPosition, false).Result);
+            itinerary.Add(itineraryService.GetItinerary(lastStationPosition, destination, true).Result);
 
-            itinerary.Add(itineraryService.GetItinerary(lastStationPosition, destination, false).Result);
             return itinerary;
         }
 
@@ -68,8 +69,6 @@ namespace RestBikeMVP
             {
                 return new List<OpenRouteServiceResponse> { itineraryService.GetItinerary(origin, destination, true).Result };
             }
-
-            Console.WriteLine(itineraryService.GetItinerary(origin, firstStationPosition, true).Result);
 
             return new List<OpenRouteServiceResponse> {
                 itineraryService.GetItinerary(origin, firstStationPosition, true).Result,

@@ -13,14 +13,14 @@ namespace RestBikeMVP.Models
         public List<Segment> Segments { get; set; }
         public List<int> WayPoints { get; set; }
         public List<List<double>> Coordinates { get; set; }
-        public List<string> Stations { get; set; }
+        public string Stations { get; set; }
 
         public ServerResponse()
         {
             Segments = new List<Segment>();
             WayPoints = new List<int>();
             Coordinates = new List<List<double>>();
-            Stations = new List<string>();
+            Stations = "";
         }
     }
 }

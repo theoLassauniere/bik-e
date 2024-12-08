@@ -8,10 +8,7 @@ const client = new StompJs.Client({
         login: "admin",    // ActiveMQ username
         passcode: "admin", // ActiveMQ password
     },
-    debug: (str) => {
-        if (!str.startsWith(">>> PONG") && !str.startsWith("<<< PING")) {
-            console.log(str); // Log only non-heartbeat messages
-        }
+    debug: () => {
     },
     reconnectDelay: 5000, // Auto-reconnect after 5 seconds
     heartbeatIncoming: 4000,
@@ -59,7 +56,7 @@ document.getElementById('swap-btn').addEventListener('click', function () {
     document.getElementById('arrival-address').value = departure;
 });
 
-document.getElementById('itinerary-search').addEventListener('click', function () {
+document.getElementById('itinary-search').addEventListener('click', function () {
     const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
     const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
     const url = "http://localhost:8733/Design_Time_Addresses/RestBikeMVP/Service1/getInstructions?"
@@ -72,19 +69,16 @@ document.getElementById('itinerary-search').addEventListener('click', function (
         .then(async (response) => response.json())
         .then(async (data) => {
 
-            console.log(data);
             const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
-            const segments = data.GetInstructionsResult.Segments;
-            const allSteps = segments.map(segment => segment.Steps).flat();
-            const instructions = allSteps.map(step => step.Instruction).flat();
-            const distanceByStep = allSteps.map(step => step.Distance).flat();
+            const stations = JSON.parse(data.GetInstructionsResult.Stations)
+
+            for (let i = 0; i < stations.length; i++) {
+                const marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
+                marker.bindPopup("Station n°" + i);
+            }
 
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
-
-            const directionComponent = document.querySelector("directions-bubbles");
-            directionComponent.simulate(instructions, distanceByStep);
-
         }
     )
 })
