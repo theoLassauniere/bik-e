@@ -23,13 +23,13 @@ client.onConnect = () => {
     client.subscribe("/queue/itinerary", (message) => {
         if (message.body) {
             // Parse and display the JSON message
-            const data = JSON.parse(message);
-            const coordinates = data.GetInstructionsResult.Coordinates.map(coord => [coord[1], coord[0]]);
-            const stations = JSON.parse(data.GetInstructionsResult.Stations);
-            const segments = data.GetInstructionsResult.Segments;
-            const allSteps = segments.map(segment => segment.Steps).flat();
-            const instructions = allSteps.map(step => step.Instruction).flat();
-            const distanceByStep = allSteps.map(step => step.Distance).flat();
+            const data = JSON.parse(message.body);
+            const coordinates = data.Coordinates.map(coord => [coord[1], coord[0]]);
+            const stations = JSON.parse(data.Stations);
+            const segments = data.Segments;
+            const allSteps = segments.map(segment => segment.steps).flat();
+            const instructions = allSteps.map(step => step.instruction).flat();
+            const distanceByStep = allSteps.map(step => step.distance).flat();
 
             const directionComponent = document.querySelector("directions-bubbles");
             directionComponent.classList.add('displayNone');
@@ -43,8 +43,7 @@ client.onConnect = () => {
 
             directionComponent.classList.remove('displayNone');
             directionComponent.simulate(instructions, distanceByStep);
-            const jsonMessage = JSON.parse(message.body);
-            console.log("Received:", jsonMessage);
+            console.log("Received:", data);
         } else {
             console.log("Empty message received");
         }
