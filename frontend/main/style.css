@@ -147,3 +147,36 @@ body {
 #departure-value{
     display: none;
 }
+
+.itinary-button button {
+    background-color: #ffffff00;
+    color: #000000;
+    width: 8.5em;
+    height: 2.9em;
+    border: #000000 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+}
+
+.itinary-button button:hover {
+    background-color: #3654ff;
+    cursor: pointer;
+    color: #f0f0f0;
+}
+
+.itinary-button button svg {
+    width: 1.6em;
+    margin: -0.2em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+}
+
+.itinary-button button:hover svg {
+    transform: translateX(5px);
+}
+
+.itinary-button button .text {
+    margin: 0 1.5em
+}

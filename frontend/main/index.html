@@ -17,10 +17,6 @@
             <img class="logo" src="../assets/logo.png" alt="logo bike"/>
         </div>
 
-        <button class="close-tab" id="close-tab">
-            <img src="../assets/fleche-gauche.png" alt="arrow"/>
-        </button>
-
         <!-- Address Input Component -->
         <app-address-input class="input" id="departure-input" placeholder="From where do we start ?"></app-address-input>
         <span class="TextFromTo" id="departure-value">Paris</span>
@@ -29,7 +25,14 @@
         <span class="TextFromTo" id="arrival-value">Grenoble</span>
 
         <div class="itinary-button">
-            <button id="itinary-search">Itinary</button>
+            <button class="button" id="itinary-search">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                </svg>
+                <div class="text"> Itinerary</div>
+            </button>
         </div>
 
 
