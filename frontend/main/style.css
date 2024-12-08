@@ -123,6 +123,7 @@ body {
 .logo {
     height: 152px;
     width: auto;
+    cursor: pointer;
 }
 
 #departure-address::placeholder {
@@ -150,6 +151,7 @@ body {
 }
 
 .itinary-button button {
+    margin-top: 1em;
     background-color: #ffffff00;
     color: #000000;
     width: 8.5em;
@@ -244,4 +246,20 @@ body {
     100% {
         stroke-dashoffset: -125px;
     }
+}
+
+.itinerary-resume {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinerary-resume #departure-value {
+    text-align: center;
+    padding-right: 1em;
+}
+
+.itinerary-resume #arrival-value {
+    text-align: center;
 }

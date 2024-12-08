@@ -45,7 +45,7 @@ client.onConnect = () => {
                 marker.bindPopup("Station n°" + (i + 1));
             }
 
-            const polyline = L.polyline(coordinates, {color: 'green'}).addTo(map);
+            const polyline = L.polyline(coordinates, {color: 'blue'}).addTo(map);
             map.fitBounds(polyline.getBounds());
 
             directionComponent.classList.remove('displayNone');
@@ -74,13 +74,6 @@ let map = L.map('map', {
     touchZoom: true
 }).setView([43.61575401901517, 7.07180936206396], 16);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,}).addTo(map);
-
-// Function to swap departure and arrival addresses
-document.getElementById('swap-btn').addEventListener('click', function () {
-    let departure = addressInput.value;
-    addressInput.value = document.getElementById('arrival-address').value;
-    document.getElementById('arrival-address').value = departure;
-});
 
 document.getElementById("logo-container").addEventListener('click', () => {
     location.reload();

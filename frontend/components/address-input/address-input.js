@@ -122,13 +122,13 @@ class AddressInput extends HTMLElement {
             if(!addressArrivalElement.classList.contains('displayNone')){
                 addressArrivalElement.classList.add('displayNone');
                 document.getElementById("arrival-value").style.display = "block";
-                document.getElementById("arrival-value").innerText = "To:" + name;
+                document.getElementById("arrival-value").innerText = "TO : " + name;
                 const arrivalPosition = {arrivalLat: lat, arrivalLon: lon};
                 localStorage.setItem('arrivalPosition', JSON.stringify(arrivalPosition));
             }
             else{
                 document.getElementById("departure-value").style.display = "block";
-                document.getElementById("departure-value").innerText = "From:" + name;
+                document.getElementById("departure-value").innerText = "FROM : " + name;
                 const departurePosition= {departureLat: lat, departureLon: lon};
                 localStorage.setItem('departurePosition', JSON.stringify(departurePosition));
             }
