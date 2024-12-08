@@ -82,6 +82,10 @@ document.getElementById('swap-btn').addEventListener('click', function () {
     document.getElementById('arrival-address').value = departure;
 });
 
+document.getElementById("logo-container").addEventListener('click', () => {
+    location.reload();
+})
+
 document.getElementById('itinary-search').addEventListener('click', function () {
     loader.classList.add('displayFlex');
     loader.classList.remove('displayNone');
