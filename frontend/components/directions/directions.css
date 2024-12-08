@@ -1,10 +1,10 @@
 /* General Styling for the Directions Bubble */
 #bubble {
-    display: flex;
-    align-content: start;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr;
     padding: 10px;
-    background-color: lightblue;
+    background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-family: Arial, sans-serif;
@@ -23,13 +23,14 @@
 .info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     color: black;
 }
 
 .info span {
-    height: 40px;
-    width: 120px;
-
+    height: auto;
+    width: 100%;
+    text-align: center;
 }
 
 #next-direction {

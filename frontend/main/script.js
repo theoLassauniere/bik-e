@@ -56,6 +56,9 @@ document.getElementById('swap-btn').addEventListener('click', function () {
     document.getElementById('arrival-address').value = departure;
 });
 
+const directionComponent = document.querySelector("directions-bubbles");
+directionComponent.classList.add('displayNone');
+
 document.getElementById('itinary-search').addEventListener('click', function () {
     const arrivalPosition = JSON.parse(localStorage.getItem('arrivalPosition'));
     const departurePosition = JSON.parse(localStorage.getItem('departurePosition'));
@@ -84,7 +87,7 @@ document.getElementById('itinary-search').addEventListener('click', function () 
             const polyline = L.polyline(coordinates, { color: 'blue' }).addTo(map);
             map.fitBounds(polyline.getBounds());
 
-            const directionComponent = document.querySelector("directions-bubbles");
+            directionComponent.classList.remove('displayNone');
             directionComponent.simulate(instructions, distanceByStep);
         }
     )

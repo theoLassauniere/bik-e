@@ -180,3 +180,8 @@ body {
 .itinary-button button .text {
     margin: 0 1.5em
 }
+
+.displayNone {
+    display: none;
+!important;
+}
