@@ -98,7 +98,7 @@ namespace RestBikeMVP
         private async Task<double> GetTravelDuration(GeoCoordinate origin, GeoCoordinate destination, bool profile)
         {
             // We assume profile is true means to go by foot
-            string mode = profile ? "foot-walking?" : "cycling-road?";
+            string mode = profile ? "foot-hiking?" : "cycling-road?";
             string url = openRouteServiceUrl + mode + openRouteServiceApiKey
                 + "&start=" + origin.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + origin.Latitude.ToString(CultureInfo.InvariantCulture)
                 + "&end=" + destination.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + destination.Latitude.ToString(CultureInfo.InvariantCulture);
@@ -114,7 +114,7 @@ namespace RestBikeMVP
         public async Task<OpenRouteServiceResponse> GetItinerary(GeoCoordinate origin, GeoCoordinate destination, bool profile)
         {         
             // We assume profile is true means to go by foot
-            string mode = profile ? "foot-walking?" : "cycling-road?";
+            string mode = profile ? "foot-hiking?" : "cycling-road?";
             string urlToGetItinerary = openRouteServiceUrl + mode + openRouteServiceApiKey
                 + "&start=" + origin.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + origin.Latitude.ToString(CultureInfo.InvariantCulture)
                 + "&end=" + destination.Longitude.ToString(CultureInfo.InvariantCulture) + ", " + destination.Latitude.ToString(CultureInfo.InvariantCulture);
